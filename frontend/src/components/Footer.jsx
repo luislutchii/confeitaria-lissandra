@@ -7,7 +7,12 @@ export default function Footer() {
       <div style={{ background: 'var(--color-baby-pink)', padding: '20px 18px' }}>
         <div
           className="container"
-          style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            flexWrap: 'wrap', 
+            gap: 20 
+          }}
         >
           <div>
             <h3 style={{ fontSize: '1.2rem' }}>Doces Tentações</h3>
