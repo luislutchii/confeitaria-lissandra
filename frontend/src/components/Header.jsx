@@ -24,7 +24,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container site-header-bar">
         <Link to="/" className="site-logo" onClick={fechar}>
-          Doces Tentações
+          Lissandra Doces Tentações
         </Link>
 
         {/* Menu do DESKTOP — só aparece em telas largas (controlado via CSS) */}
@@ -57,7 +57,7 @@ export default function Header() {
       {menuAberto && (
         <div className="mobile-menu-overlay">
           <div className="mobile-menu-top">
-            <span className="site-logo">Doces Tentações</span>
+            <span className="site-logo">Lissandra Doces Tentações</span>
             <button className="nav-toggle" aria-label="Fechar menu" onClick={fechar}>✕</button>
           </div>
 
