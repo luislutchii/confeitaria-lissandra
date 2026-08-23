@@ -1,14 +1,18 @@
-/**
- * Divisor decorativo inspirado na borda de um forminha de doce / prato de bolo.
- * Usado entre seções para reforçar a identidade da confeitaria sem depender
- * de linhas retas genéricas.
+/*Divisor decorativo inspirado na borda de um forminha de doce / prato de bolo.
+  Usado entre seções para reforçar a identidade da confeitaria sem depender
+  de linhas retas genéricas.
  */
 export default function ScallopDivider({ color = 'var(--color-blush)', flip = false }) {
   return (
     <svg
       viewBox="0 0 1200 40"
       preserveAspectRatio="none"
-      style={{ width: '100%', height: 28, display: 'block', transform: flip ? 'rotate(180deg)' : 'none' }}
+      style={{ 
+        width: '100%', 
+        height: 28, 
+        display: 'block', 
+        transform: flip ? 'rotate(180deg)' : 'none' 
+      }}
       aria-hidden="true"
     >
       <path

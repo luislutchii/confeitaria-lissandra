@@ -8,7 +8,13 @@ export default function Footer() {
       <div style={{ background: 'var(--color-blush)', padding: '48px 20px 24px', borderTop: '1px solid var(--color-border-light)' }}>
         <div
           className="container"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 36, marginBottom: 36 }}
+
+          style={{ 
+                 display: 'grid', 
+                 gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
+                 gap: 36, 
+                 marginBottom: 36 }}
+
         >
           <div>
             <h3 style={{ fontSize: '1.35rem', marginBottom: 12 }}>Doces Tentações</h3>

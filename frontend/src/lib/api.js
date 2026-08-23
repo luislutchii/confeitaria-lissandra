@@ -34,20 +34,15 @@ async function request(path, options = {}) {
 }
 
 export const api = {
-  // =========================
   // Produtos
-  // =========================
-
   listProducts: (categorySlug) =>
     request(
       `/products${categorySlug ? `?category=${categorySlug}` : ''}`
     ),
 
-  getProduct: (slug) =>
-    request(`/products/${slug}`),
+  getProduct: (slug) => request(`/products/${slug}`),
 
-  listAllProductsAdmin: () =>
-    request('/products/admin/all'),
+  listAllProductsAdmin: () => request('/products/admin/all'),
 
   createProduct: (payload) =>
     request('/products', {
@@ -66,10 +61,7 @@ export const api = {
       method: 'DELETE',
     }),
 
-  // =========================
   // Upload de imagem
-  // =========================
-
   uploadProductImage: async (file) => {
     if (!file) {
       throw new Error('Nenhuma imagem foi selecionada.');
@@ -77,44 +69,31 @@ export const api = {
 
     const fileExt = file.name.split('.').pop();
 
-    const fileName = `${Date.now()}-${Math.random()
-      .toString(36)
-      .substring(2)}.${fileExt}`;
+    const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
 
     const filePath = `products/${fileName}`;
 
-    const { error: uploadError } = await supabase.storage
-      .from('products')
+    const { error: uploadError } = await supabase.storage.from('products')
       .upload(filePath, file, {
         cacheControl: '3600',
         upsert: false,
       });
 
     if (uploadError) {
-      throw new Error(
-        `Erro ao enviar imagem: ${uploadError.message}`
-      );
+      throw new Error(`Erro ao enviar imagem: ${uploadError.message}`);
     }
 
-    const { data } = supabase.storage
-      .from('products')
-      .getPublicUrl(filePath);
+    const { data } = supabase.storage.from('products').getPublicUrl(filePath);
 
     if (!data?.publicUrl) {
-      throw new Error(
-        'Não foi possível obter a URL da imagem.'
-      );
+      throw new Error('Não foi possível obter a URL da imagem.');
     }
 
     return data.publicUrl;
   },
 
-  // =========================
   // Categorias
-  // =========================
-
-  listCategories: () =>
-    request('/categories'),
+  listCategories: () => request('/categories'),
 
   createCategory: (payload) =>
     request('/categories', {
@@ -127,10 +106,7 @@ export const api = {
       method: 'DELETE',
     }),
 
-  // =========================
   // Pedidos
-  // =========================
-
   createOrder: (payload) =>
     request('/orders', {
       method: 'POST',
@@ -141,9 +117,7 @@ export const api = {
     request('/orders/me'),
 
   listAllOrders: (status) =>
-    request(
-      `/orders${status ? `?status=${status}` : ''}`
-    ),
+    request(`/orders${status ? `?status=${status}` : ''}`),
 
   updateOrderStatus: (id, status) =>
     request(`/orders/${id}/status`, {

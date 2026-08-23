@@ -9,6 +9,5 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-// Cliente público (anon key): respeita as políticas de RLS do banco.
-// Usado para autenticação e leitura direta de produtos/categorias.
+// Cliente público (anon key), Usado para autenticação e leitura direta de produtos/categorias.
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
